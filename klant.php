@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_POST['mobile']
     ]);
 
-    header("Location: index.php");
+    header("Location: klant.php");
     exit();
 }
 
@@ -33,7 +33,7 @@ if (isset($_GET['delete'])) {
     $stmt = $conn->prepare("DELETE FROM customers WHERE id = ?");
     $stmt->execute([$_GET['delete']]);
 
-    header("Location: index.php");
+    header("Location: klant.php");
     exit();
 }
 
@@ -75,7 +75,7 @@ $view = isset($_GET['action']) ? $_GET['action'] : 'list';
 
 <div class="footer">
 <button type="submit" class="btn green">Create</button>
-<a href="index.php" class="btn">Back</a>
+<a href="klant.php" class="btn">Back</a>
 </div>
 
 </form>
@@ -84,7 +84,7 @@ $view = isset($_GET['action']) ? $_GET['action'] : 'list';
 
 <h2>PHP CRUD Grid</h2>
 
-<a href="index.php?action=create" class="btn green">Create</a>
+<a href="klant.php?action=create" class="btn green">Create</a>
 
 <table>
 <thead>
@@ -112,7 +112,7 @@ foreach ($data as $row):
 
 <td>
 <a 
-href="index.php?delete=<?= $row['id'] ?>" 
+href="klant.php?delete=<?= $row['id'] ?>" 
 class="btn-s"
 onclick="return confirm('Delete this customer?')"
 >
